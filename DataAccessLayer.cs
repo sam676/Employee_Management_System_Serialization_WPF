@@ -30,7 +30,7 @@ namespace EmployeeWPF
 
                 Dir = new DirectoryInfo(dirPath);
 
-                if (!Dir.Exists)     //INSERT TRY  CATCH BLOCKS HERE!!!!
+                if (!Dir.Exists)     
                 {
                     Dir.Create();
                 }
@@ -79,6 +79,7 @@ namespace EmployeeWPF
                 {
                     using (FileStream fs = new FileStream(f.FullName, FileMode.Open, FileAccess.Read)) 
                     {
+                        //deserialization
                         result.Add(b.Deserialize(fs) as Employee);
 
                     }
@@ -97,6 +98,7 @@ namespace EmployeeWPF
                     using (FileStream fs = new FileStream($"{Dir.FullName}/{id}.bin", FileMode.Open, FileAccess.Read))
                     {
                         BinaryFormatter b = new BinaryFormatter();
+                        //deserialization
                         return b.Deserialize(fs) as Employee;
                     }
                 }

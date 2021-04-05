@@ -41,7 +41,6 @@ namespace EmployeeWPF
             {
                 Employee original = Employees.Find(ef => ef.EmployeeID == e.EmployeeID);
 
-                //try catch block here!!!!
 
                 //First test to confirm employee obj is still there
                 if (original != null)
